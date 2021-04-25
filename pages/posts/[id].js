@@ -4,7 +4,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.css";
 
-// ③「②」で取得したファイルを展開する。
+// ③「②」で取得したファイルを展開する
 export default function Post({ postData }) {
   return (
     <Layout>
@@ -24,7 +24,7 @@ export default function Post({ postData }) {
 
 // ①ここで静的なものを作成する可能性のものを指定しておく。
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
     fallback: false,

@@ -4,6 +4,7 @@ import { getSortedPostsData } from "../lib/posts";
 import Head from "next/head";
 import Link from "next/link";
 import Date from "../components/date";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 
 // 静的ページを作成するとき。
 // export async function getStaticProps() {
@@ -16,7 +17,7 @@ import Date from "../components/date";
 // }
 
 // サーバーサイドレンダリングをするときに実行される。
-export async function getServerSideProps(context) {
+export const getServerSideProps: GetServerSideProps = async context => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
@@ -24,6 +25,8 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+
 
 export default function Home({ allPostsData }) {
   return (
