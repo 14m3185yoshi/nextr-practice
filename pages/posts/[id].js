@@ -24,7 +24,7 @@ export default function Post({ postData }) {
 
 // ①ここで静的なものを作成する可能性のものを指定しておく。
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
     fallback: false,
